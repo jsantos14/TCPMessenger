@@ -1,0 +1,15 @@
+﻿<Window x:Class="TCPMessenger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TCPMessenger"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBlock x:Name="convoBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="204" Width="498"/>
+        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Right" Margin="0,0,10.4,65.8" Width="75" Height="19" VerticalAlignment="Bottom" Click="sendButton_Click"/>
+        <TextBox x:Name="textBox" Height="23" Margin="10,0,107.4,65.8" TextWrapping="Wrap" VerticalAlignment="Bottom" SpellCheck.IsEnabled="True" UndoLimit="10" PreviewKeyDown="textBox_PreviewKeyDown"/>
+
+    </Grid>
+</Window>
