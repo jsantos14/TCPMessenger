@@ -23,23 +23,51 @@ namespace TCPMessenger
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "TCP Messenger"; 
+        }
+
+        public Grid getGrid()
+        {
+            return grid; 
         }
 
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
-            String oldConvo = convoBox.Text;
-            convoBox.Text = oldConvo + "\nYou: " + textBox.Text;
-            textBox.Text = ""; 
+            sendMessage(); 
         }
 
         private void textBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
+                sendMessage(); 
+                e.Handled = true;
+            }
+        }
+
+        private void exitMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Environment.Exit(1);   
+        }
+
+        private void settingsMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            settingsWindow settingsWindow = new settingsWindow(this);
+            settingsWindow.Title = "Settings"; 
+            settingsWindow.Show();
+        }
+
+        private void sendMessage()
+        {
+            if (!String.IsNullOrWhiteSpace(ipTextBox.Text))
+            {
                 String oldConvo = convoBox.Text;
                 convoBox.Text = oldConvo + "\nYou: " + textBox.Text;
-                textBox.Text = ""; 
-                e.Handled = true;
+                textBox.Text = "";
+            }       
+            else
+            {
+                MessageBox.Show("Enter an IP Address!");
             }
         }
     }
